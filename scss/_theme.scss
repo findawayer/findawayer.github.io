@@ -348,6 +348,15 @@ body {
     position: fixed;
     right: 30px;
     bottom: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear .3s, opacity .3s;
+
+    &.is-visible {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s linear 0s, opacity .3s;
+    }
 
     &Button {
         background: white;

@@ -8,13 +8,35 @@
     });
     
 	/* Back to top button */
-	var toTopButton = document.getElementById("backToTopButton");
+    var toTop = {
+        container: document.getElementById("backToTop"),
+        button: document.getElementById("backToTopButton"),
+        isVisible: false,
+        breakPoint: 400
+    };
 
-	//toTopButton.className = (scroll < 300) ? "" : "active";
-	toTopButton.addEventListener("click", function(e) {
+	toTop.button.addEventListener("click", function(e) {
 		e.preventDefault();
 		scrollToY(0);
 	});
+
+    window.addEventListener("scroll", toggleToTopButton);
+
+    function toggleToTopButton() {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+        if (scrollTop > 400) {
+            if (!toTop.isVisible) {
+                toTop.container.className = "is-visible";
+                toTop.isVisible = true;
+            }
+        } else {
+            if (toTop.isVisible) {
+                toTop.container.className = "";
+                toTop.isVisible = false;
+            }
+        }
+    };
 
 	/* Continue button */
 	var continueButton = document.getElementById("continueButton");
