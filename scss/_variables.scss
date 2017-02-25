@@ -1,0 +1,24 @@
+// Color Scheme
+// Demo: https://coolors.co/181a1b-12355b-ffffff-d72638-ff8337
+
+$charleston-green: #282a2f; // base font color
+$picton-blue: #30b7e8; // link color
+$bright-cerulean: #1ca8dd; // bright blue
+$cyan-cornflower-blue: #1895c5; // slightly dark blue
+$spanish-grey: #94979c;
+$platinum: #e6e9ea;
+
+// Font
+$font-weight-normal: 400;
+$font-weight-bold: 500;
+
+$font-global: "Roboto";
+$font-ui: "Quicksand";
+
+$base-font: $font-global, system-ui, sans-serif;
+$base-font-size: 15px;
+$base-font-size-shrink: 14px;
+$base-font-weight: $font-weight-normal;
+$base-line-height: 2;
+$base-tracking: -0.01em;
+$base-font-color: $charleston-green;

@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+/*--------------------------------------------------
+ * 레이아웃 | LAYOUT
+ *
+ * 페이지 구조 관련 스타일링
+ *--------------------------------------------------*/
+
+/* 루트 */
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    @extend html;
+    position: relative;
+    min-width: 320px;
+}
+
+/* 페이지 */
+.l-page {
+    margin-bottom: 533px;
+}
+
+/* 섹션 */
+.l-section {
+    min-height: 100vh;
+    padding: 15vh 100px;
+    position: relative;
+    box-sizing: border-box;
+
+    &.l-split {
+        display: table;
+        width: 100%;
+        padding: 0;
+        border-spacing: 0;
+        table-layout: fixed;
+
+        > .l-section {
+            display: table-cell;
+        }
+    }
+
+    &-holder {
+        max-width: 1320px;
+        margin: 0 auto;
+    }
+}
+
+/* 푸터 */
+.l-footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+
+    &-holder {
+        padding: {
+            left: 100px;
+            right: 100px;
+        }
+    }
+}

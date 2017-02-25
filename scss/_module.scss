@@ -1,0 +1,225 @@
+@charset "UTF-8";
+
+/*--------------------------------------------------
+ * 모듈 | MODULE
+ *
+ * 재사용 가능한 컴포넌트 스타일링
+ *--------------------------------------------------*/
+ 
+/* 사운드리더 전용 (from `Twitter Bootstrap`) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* 섹션 제목 */
+.section-heading {
+    text-align: center;
+
+    .primary {
+        display: block;
+        @include text-scale(3);
+        @include chic-border;
+    }
+    .secondary {
+        display: block;
+        @include text-scale(1);
+        opacity: .5;
+    }
+
+    + .section-content {
+        margin-top: 5rem;
+    }
+}
+
+/* 버튼 */
+.ui-button {
+    background: $picton-blue;
+    border-radius: 44px;
+    color: white;
+    display: inline-block;
+    min-width: 6em;
+    height: 44px;
+    margin: 0 .2em;
+    overflow: hidden;
+    padding: 12px 16px 14px;
+    position: relative;
+    vertical-align: middle;
+    letter-spacing: -.03em;
+    line-height: 18px;
+    font: {
+        family: $font-ui, sans-serif;
+        size: 1rem;
+        weight: $font-weight-bold;
+    }
+    text-align: center;
+    box-sizing: border-box;
+    @include user-select(none);
+
+    &::after {
+        background-color: rgba(black, .08);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        content: "";
+        transition: height .3s;
+    }
+
+    &:hover {
+        text-decoration: none;
+
+        &::after {
+            height: 50%;
+        }
+    }
+
+    &-holder {
+        margin: 1rem 0;
+        text-align: center;
+    }
+}
+
+/* 그림 아이콘을 동반하는 텍스트 */
+.fi,
+.iconed-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+.iconed-text {
+    margin-left: .5em;
+}
+
+/* 불릿이 없는 리스트 */
+.unstyled-list {
+    padding: 0;
+    list-style: none;
+}
+
+/* 체크 아이콘을 포함한 리스트 */
+.checked-list {
+    padding: 0;
+    list-style: none;
+
+    > li {
+        position: relative;
+
+        &::before {
+            margin-right: .5em;
+            @include font-icon;
+            content: $icon-checked;
+            line-height: 2;
+        }
+    }
+}
+
+/* 팔레트 */
+.palette {
+    display: inline-block;
+    padding: 0;
+    vertical-align: middle;
+    list-style: none;
+
+    &-item {
+        border-radius: .25rem;
+        float: left;
+        width: 1.5rem;
+        height: 1.5rem;
+
+        & + .palette-item {
+            margin-left: .5rem;
+        }
+    }
+
+    &::after {
+        @include clearfix;
+    }
+}
+
+/* 카테고리 태그 (HTML, CSS, JS) */
+.categ {
+    border-radius: .25em;
+    display: inline-block;
+    min-width: 2em;
+    padding: .35em .65em;
+    line-height: 1;
+    font: {
+        family: $font-ui, sans-serif;
+        size: .92rem;
+    }
+    text-align: center;
+
+    &.html {
+        background: #8dca35;
+        color: white;
+    }
+
+    &.css {
+        background: #00bfdd;
+        color: white;
+    }
+
+    &.js {
+        background: #ff702a;
+        color: white;
+    }
+}
+
+/* CSS 툴팁 */
+[data-tooltip] {
+    position: relative;
+
+    &::before,
+    &::after {
+        display: block;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity .3s ease-out;
+        pointer-events: none;
+    }
+    
+    &::before {
+        background: rgba(black, .92);
+        border-radius: .25em;
+        box-shadow: 0 1px 5px -1px rgba(50, 50, 50, .5);
+        color: white;
+        margin-bottom: 6px;
+        padding: 10px;
+        content: attr(data-tooltip);
+        font-size: 13px;
+        line-height: 1.5;
+        text-align: center;
+        white-space: nowrap;
+        @include transform(translateX(-50%));
+    }
+
+    &::after {
+        border:{
+            color: rgba(black, .92) transparent transparent transparent;
+            style: solid;
+            width: 6px 6px 0 6px;
+        }
+        width: 0;
+        height: 0;
+        margin-left: -6px;
+        content: "";
+    }
+
+    &:hover {
+        &::before,
+        &::after {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}

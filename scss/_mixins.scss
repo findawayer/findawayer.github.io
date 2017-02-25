@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+@import "_variables";
+
+// clear fix
+@mixin clearfix {
+    clear: both;
+    display: table;
+    content: "";
+}
+
+// Scale by Golden Ratio
+$golden-ratio: (1 + sqrt(5)) / 2;
+$alt-ratio: 7 / 6;
+
+@function modular-scale($value, $iteration: 0) {
+
+    @if $iteration > 0 {
+        @for $i from 1 through $iteration {
+            $value: $value * $golden-ratio;
+        }
+    }
+    @else if $iteration < 0 {
+        @for $i from 1 through $iteration * -1 {
+            $value: $value / $alt-ratio;
+        }
+    }
+
+    @return $value;
+}
+
+// Scale font size based on the golden ratio
+@mixin text-scale($interval: 0) {
+    font-size: round( modular-scale($base-font-size, $interval) );
+}
+
+// Add short border under the text
+@mixin chic-border($color: $picton-blue) {
+    $width: 1.25em;
+
+    padding-bottom: .25em;
+    position: relative;
+
+    &::after {
+        background: $color;
+        border-radius: .25em;
+        display: block;
+        width: $width;
+        height: 2px;
+        margin-left: $width * -0.5;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        content: "";
+    }
+}
+
+// pick color based on background color's lightness
+@function color-inverter($bgcolor) {
+    @if (lightness($bgcolor) > 50) {
+        @return black;
+    }
+    @else {
+        @return white;
+    }
+}
