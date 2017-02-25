@@ -21,7 +21,7 @@
 
 	continueButton.addEventListener("click", function(e) {
 		e.preventDefault();
-		scrollToY(document.getElementById("description").offsetTop, 500);
+		scrollToY(document.getElementById("introduction").offsetTop, 500);
 	});
 
     function scrollToY(targetY, duration) {
