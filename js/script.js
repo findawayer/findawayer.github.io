@@ -33,6 +33,7 @@
 
         function initAOS() {
             AOS.init({
+                disable: "mobile",
                 offset: 0,
                 easing: "ease-in-out-sine",
                 duration: 800
