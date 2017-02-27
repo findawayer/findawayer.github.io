@@ -152,37 +152,11 @@ body {
     height: 88px;
     position: relative;
     letter-spacing: .25em;
-    @include text-scale(-2);
     text: {
         align: center;
         transform: uppercase;
     }
-
-    &::before {
-        width: 8em;
-        position: absolute;
-        top: 0;
-        left: 0;
-        visibility: hidden;
-        opacity: 0;
-        text-align: center;
-        transition: visibility 0s linear .2s, opacity .2s;
-        content: attr(data-hover-text);
-    }
-
-    > span {
-        display: inline-block;
-        position: relative;
-        transition: all .5s;
-        @include transform( perspective(1000px) rotate3d(0, 1, 0, 0) );
-        @include backface-visibility(hidden);
-
-        @for $i from 1 through 8 {
-            &:nth-child(#{$i}) {
-                transition-delay: 0.05s * $i;
-            }
-        }
-    }
+    @include text-scale(-2);
 
     &::after {
         background-color: $charleston-green;
@@ -198,16 +172,6 @@ body {
 
     &:hover {
         text-decoration: none;
-
-        > span {
-            @include transform( perspective(1000px) rotate3d(0, 1, 0, 180deg) );
-        }
-
-        &::before {
-            visibility: visible;
-            opacity: 1;
-            transition: visibility 0s linear 0s, opacity .2s;
-        }
 
         &::after {
             height: 20px;
