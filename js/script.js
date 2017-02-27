@@ -1,12 +1,18 @@
 (function(window, document, undefined) {
 
-    /* Initiate AOS, animate on scroll */
-    AOS.init({
-        offset: 0,
-        easing: "ease-in-out-sine",
-        duration: 800
+    document.addEventListener("DOMContentLoaded", function() {
+        domReady();
     });
-    
+
+    function domReady() {
+        /* Initiate AOS, `animate on scroll` */
+        AOS.init({
+            offset: 0,
+            easing: "ease-in-out-sine",
+            duration: 800
+        });
+    }
+
 	/* Back to top button */
     var toTop = {
         container: document.getElementById("backToTop"),
