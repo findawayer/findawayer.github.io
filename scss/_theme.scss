@@ -9,8 +9,6 @@
 /* 기초 */
 html {
     font-size: $base-font-size; /* required for rem unit */
-    @include experimental("text-rendering", optimizeLegibility, webkit, moz, o, ms);
-    @include experimental("text-size-adjust", none, webkit, ms);
 }
 
 body {
@@ -21,6 +19,7 @@ body {
         family: $base-font;
         weight: $base-font-weight;
     }
+    @include experimental("text-size-adjust", none, webkit, ms);
 }
 
 /* 섹션 */
@@ -74,6 +73,7 @@ body {
     }
     text-align: center;
     white-space: nowrap;
+    @include experimental("text-rendering", geometricPrecision, webkit, moz, o, ms);
 
     &-text {
         display: block;
@@ -324,9 +324,11 @@ body {
     }
 
     &.alternate {
-        > li:nth-child(even) {
-            .gallery-caption {
-                order: -1;
+        .gallery-item {
+            &:nth-child(even) {
+                .gallery-caption {
+                    order: -1;
+                }
             }
         }
     }
@@ -466,5 +468,4 @@ body {
         bottom: 40px;
     }
     text-align: center;
-    @include text-scale(-1);
 }
