@@ -155,7 +155,7 @@
                                 </dl>
                                 <p><a href="http://www.sac.or.kr/" target="_blank">예술의 전당 사이트</a>의 메인 페이지를 부트스트랩 4를 기반으로 한 반응형 구조로 리뉴얼해 보았습니다.</p>
                                 <p><a href="https://v4-alpha.getbootstrap.com/" target="_blank">부트스트랩의 4 alpha 버전</a>을 기반으로 제작되었고, 이 버전의 부트스트랩이 사용하는 Sass를 테마 제작에도 사용했으며, IE9+를 지원하는 jQuery 3.1 및 jQuery UI가 사용되었습니다.</p>
-                                <div class="ui-button-holder">
+                                <div class="ui-group">
                                     <a role="button" class="ui-button" href="https://findawayer.github.io/Portfolio-SAC/" target="_blank">Demo</a>
                                     <a role="button" class="ui-button" href="https://github.com/findawayer/Portfolio-SAC/tree/gh-pages" target="_blank">Repos</a>
                                 </div>
@@ -173,7 +173,7 @@
                                 <tr>
                                     <td><span class="categ html">HTML</span></td>
                                     <td><a href="https://github.com/findawayer/Portfolio-SAC/blob/gh-pages/index.html" target="_blank">index.html</a></td>
-                                    <td>HTML5, ARIA</td>
+                                    <td>HTML5, ARIA, SVG</td>
                                 </tr>
                                 <tr>
                                     <td><span class="categ css">CSS</span></td>
@@ -188,7 +188,7 @@
                                 <tr>
                                     <td><span class="categ css">CSS</span></td>
                                     <td><a href="https://github.com/findawayer/Portfolio-SAC/tree/gh-pages/scss/partials" target="_blank">Sass partials</a></td>
-                                    <td>CSS3, Sass</td>
+                                    <td>CSS3, Sass, Compass, Responsive</td>
                                 </tr>
                                 <tr>
                                     <td><span class="categ js">JS</span></td>
@@ -225,7 +225,7 @@
                                 </dl>
                                 <p><a href="http://www.kma.go.kr/index.jsp" target="_blank">기상청</a> 사이트의 대문을 리뉴얼해 보았습니다. 인터페이스용 그림에는 SVG를 적극적으로 활용했고, 백업 png를 병용했습니다.</p>
                                 <p>공공기관 사이트로서 보다 많은 사용자 환경에 대응하기 위해 익스플로러 8까지의 호환성 지원, 웹 접근성 관리가 되어 있습니다.</p>
-                                <div class="ui-button-holder">
+                                <div class="ui-group">
                                     <a role="button" class="ui-button" href="https://findawayer.github.io/Portfolio-KMA/" target="_blank">Demo</a>
                                     <a role="button" class="ui-button" href="https://github.com/findawayer/Portfolio-KMA/tree/gh-pages" target="_blank">Repos</a>
                                 </div>
@@ -243,17 +243,17 @@
                                 <tr>
                                     <td><span class="categ html">HTML</span></td>
                                     <td><a href="https://github.com/findawayer/Portfolio-KMA/blob/gh-pages/index.html" target="_blank">index.html</a></td>
-                                    <td>HTML5, ARIA</td>
+                                    <td>HTML5, ARIA, SVG</td>
                                 </tr>
                                 <tr>
                                     <td><span class="categ css">CSS</span></td>
                                     <td><a href="https://github.com/findawayer/Portfolio-KMA/blob/gh-pages/scss/style.scss" target="_blank">style.scss</a></td>
-                                    <td>CSS3, Sass</td>
+                                    <td>CSS3, Sass, Compass</td>
                                 </tr>
                                 <tr>
                                     <td><span class="categ css">CSS</span></td>
                                     <td><a href="https://github.com/findawayer/Portfolio-KMA/tree/gh-pages/scss/partials" target="_blank">Sass partials</a></td>
-                                    <td>CSS3, Sass</td>
+                                    <td>CSS3, Sass, Compass, CSS sprite</td>
                                 </tr>
                                 <tr>
                                     <td><span class="categ js">JS</span></td>
@@ -294,10 +294,25 @@
                                 </dl>
                                 <p>오리지널 영화 정보 및 예매사이트를 모바일 전용으로 구성해 보았습니다. <b>영화 목록 페이지</b>, <b>특정 영화 정보 페이지</b>, <b>티켓 예매 페이지</b> 3가지 샘플을 포함하고 있습니다.</p>
                                 <p>기기별 기본 UX를 최대한 유지하기 위해 검색상자나 선택상자 등은 네이티브 형식을 사용했으며, 필요에 따라 날짜선택, 별점 입력 등의 기능이 추가돼 있습니다.</p>
-                                <div class="ui-button-holder">
-                                    <a role="button" class="ui-button" href="https://findawayer.github.io/Portfolio-MovieSite/" target="_blank">Demo</a>
-                                    <a role="button" class="ui-button" href="https://github.com/findawayer/Portfolio-MovieSite/tree/gh-pages" target="_blank">Repos</a>
-                                </div>
+                                <ul class="ui-group">
+                                    <li class="ui-group-item ui-dropdown-holder">
+                                        <a role="button" class="ui-button ui-dropdown-trigger" href="#">Demo</a>
+                                        <ul role="menu" class="ui-dropdown">
+                                            <li role="presentation" class="ui-dropdown-item">
+                                                <a role="menuitem" href="https://findawayer.github.io/Portfolio-MovieSite/" target="_blank">Main page</a>
+                                            </li>
+                                            <li role="presentation" class="ui-dropdown-item">
+                                                <a role="menuitem" href="https://findawayer.github.io/Portfolio-MovieSite/movie.html" target="_blank">Info page</a>
+                                            </li>
+                                            <li role="presentation" class="ui-dropdown-item">
+                                                <a role="menuitem" href="https://findawayer.github.io/Portfolio-MovieSite/order.html" target="_blank">Order page</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="ui-group-item">
+                                        <a role="button" class="ui-button" href="https://github.com/findawayer/Portfolio-MovieSite/tree/gh-pages" target="_blank">Repos</a>
+                                    </li>
+                                </ul>
                             </figcaption>
                         </figure>
                         <table class="gallery-table">
@@ -332,7 +347,7 @@
                                 <tr>
                                     <td><span class="categ css">CSS</span></td>
                                     <td><a href="https://github.com/findawayer/Portfolio-MovieSite/tree/gh-pages/less/partials" target="_blank">LESS partials</a></td>
-                                    <td>CSS3, LESS</td>
+                                    <td>CSS3, LESS, Responsive</td>
                                 </tr>
                                 <tr>
                                     <td><span class="categ css">CSS</span></td>

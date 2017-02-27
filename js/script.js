@@ -70,7 +70,7 @@
                 toTop.isVisible = false;
             }
         }
-    };
+    }
 
 	/* Continue button */
 	var continueButton = document.getElementById("continueButton");
@@ -80,11 +80,11 @@
 		scrollToY(document.getElementById("introduction").offsetTop, 500);
 	});
 
-    function scrollToY(targetY, duration) {
+    function scrollToY(pos, timing) {
         var scrollTop = window.scrollY || document.documentElement.scrollTop;
-        var destination = targetY || 0;
-        var duration = duration || 1000;
-        var time = Math.max(.1, Math.min(Math.abs(scrollTop - destination) / duration, .8));
+        var destination = pos || 0;
+        var duration = timing || 1000;
+        var time = Math.max(0.1, Math.min(Math.abs(scrollTop - destination) / duration, 0.8));
         var currentTime = 0;
 
         (function tick() {
@@ -102,5 +102,52 @@
             }
         })();
     }
+
+    /* Dropdown */
+    (function dropdown() {
+        var triggers = document.getElementsByClassName("ui-dropdown-trigger");
+
+        var DropdownObj = function(el) {
+            this.container = el.parentElement;
+            this.trigger = el;
+            this.panel = el.nextElementSibling;
+            this.isOpen = false;
+
+            var self = this;
+
+            this.trigger.addEventListener("click", function(event) {
+                event.preventDefault();
+
+                if (self.isOpen) {
+                    self.hide();
+                } else {
+                    self.show();
+
+                    document.addEventListener("click", function(event) {
+                        if (!self.container.contains(event.target)) {
+                            self.hide();
+                        }
+                    });
+                }
+            });
+        };
+
+        DropdownObj.prototype = {
+            show: function() {
+                this.trigger.classList.add("is-triggered");
+                this.panel.classList.add("is-expanded");
+                this.isOpen = true;
+            },
+            hide: function() {
+                this.trigger.classList.remove("is-triggered");
+                this.panel.classList.remove("is-expanded");
+                this.isOpen = false;
+            }
+        };
+
+        Array.from(triggers).forEach(function(el) {
+            new DropdownObj(el);
+        });
+    })();
 
 })(window, document);
