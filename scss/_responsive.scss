@@ -177,6 +177,53 @@
                 margin: 0;
             }
         }
+
+        .gallery {
+            &-title {
+                text-align: center;
+
+                &::before {
+                    display: block;
+                    width: auto;
+                    margin: 1rem 0;
+                }
+            }
+
+            &-desc {
+                text-align: center;
+
+                dt,
+                dd {
+                    clear: none;
+                    float: none;
+                }
+
+                dt {
+                    min-width: initial;
+                    padding: 0;
+
+                    &::before {
+                        margin-right: .25em;
+                        content: "[";
+                    }
+
+                    &::after {
+                        margin-left: .25em;
+                        content: "]";
+                    }
+                }
+            }
+
+            &-table {
+                a {
+                    display: inline-block;
+                    max-width: 25vw;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
     }
 
     @media (max-width: 479px) {
