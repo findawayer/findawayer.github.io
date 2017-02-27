@@ -15,7 +15,7 @@ $font-weight-bold: 500;
 $font-global: "Roboto";
 $font-ui: "Quicksand";
 
-$base-font: $font-global, system-ui, sans-serif;
+$base-font: $font-global, system-ui, -apple-system, BlinkMacSystemFont, "Malgun Gothic", Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 $base-font-size: 15px;
 $base-font-size-shrink: 14px;
 $base-font-weight: $font-weight-normal;
