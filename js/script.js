@@ -1,16 +1,43 @@
 (function(window, document, undefined) {
 
     document.addEventListener("DOMContentLoaded", function() {
-        domReady();
+        // explicitely wait a few moment even if document is instantly loaded
+        setTimeout(destroyPreloadLayer, 1000);
     });
 
-    function domReady() {
-        /* Initiate AOS, `animate on scroll` */
-        AOS.init({
-            offset: 0,
-            easing: "ease-in-out-sine",
-            duration: 800
-        });
+    function destroyPreloadLayer() {
+        var layer = document.getElementById("preload");
+
+        fadeOut(layer, initAOS);
+
+        function fadeOut(el, callback) {
+            var opacity = 1;
+            var interval = 1 / 8;
+
+            (function animate() {
+                opacity -= interval;
+
+                if (opacity > 0) {
+                    el.style.opacity = opacity;
+                    window.requestAnimationFrame( animate );
+                } else {
+                    el.removeAttribute("style");
+                    el.classList.add("is-fired");
+                }
+            })();
+
+            if (typeof callback == "function") {
+                callback();
+            }
+        }
+
+        function initAOS() {
+            AOS.init({
+                offset: 0,
+                easing: "ease-in-out-sine",
+                duration: 800
+            });
+        }
     }
 
 	/* Back to top button */

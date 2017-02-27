@@ -2,11 +2,28 @@
 
 @import "_variables";
 
-// clear fix
+// Clear float
 @mixin clearfix {
     clear: both;
     display: table;
     content: "";
+}
+
+// Centerize
+@mixin centerize($horizontal: false, $vertical: false) {
+    position: absolute;
+
+    @if ($horizontal and $vertical) {
+        top: 50%;
+        left: 50%;
+        @include transform( translate(-50%, -50%) );
+    } @else if ($horizontal) {
+        left: 50%;
+        @include transform( translate(-50%, 0) );
+    } @else if ($vertical) {
+        top: 50%;
+        @include transform( translate(0, -50%) );
+    }
 }
 
 // Scale by Golden Ratio

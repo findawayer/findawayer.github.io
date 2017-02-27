@@ -18,6 +18,42 @@
     border: 0;
 }
 
+/* 로딩 스로버 (from https://github.com/tobiasahlin/SpinKit) */
+.throbber {
+    width: 70px;
+
+    > div {
+        background: $picton-blue;
+        border-radius: 100%;
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        @include animation(bouncedelay 1.4s infinite ease-in-out both);
+
+        &:nth-child(1) {
+            -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+        }
+
+        &:nth-child(2) {
+            -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+        }
+    }
+}
+
+@include keyframes(bouncedelay) {
+    0%,
+    80%,
+    100% {
+        @include transform(scale(0));
+    }
+    40% {
+        @include transform(scale(1.0));
+    }
+}
+
+
 /* 섹션 제목 */
 .section-heading {
     text-align: center;
