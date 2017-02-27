@@ -32,8 +32,20 @@
                 max-width: 800px;
             }
         }
+
+        #myself,
+        #skills {
+            .section-heading {
+                .primary {
+                    &::after {
+                        margin-left: -.625em;
+                        left: 50%;
+                    }
+                }
+            }
+        }
         
-        #intro {
+        #myself {
             min-height: auto;
 
             &, .section-heading {
@@ -151,11 +163,11 @@
         .logo {
             &-text {
                 @include text-scale(4);
+            }
 
-                &-secondary {
-                    left: 1em;
-                    @include text-scale(2);
-                }
+            &-subtext {
+                left: 1em;
+                @include text-scale(2);
             }
         }
 
