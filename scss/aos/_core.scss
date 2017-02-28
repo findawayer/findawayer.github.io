@@ -4,6 +4,7 @@
 // 1. use of additional variables for simpler syntax
 // 2. `body[data-aos-delay]` for global delay
 [data-aos] {
+  @include backface-visibility(hidden);
   $interval: 100;
 
   @for $i from 1 through 20 {

@@ -13,44 +13,44 @@ $aos-distance: 100px !default;
 
 [data-aos^="fade"][data-aos^="fade"] {
   opacity: 0;
-  transition-property: opacity, transform;
+  transition-property: opacity, -webkit-transform, -ms-transform, transform;
 
   &.aos-animate {
     opacity: 1;
-    transform: translate(0, 0);
+    @include transform(translate3d(0, 0, 0));
   }
 }
 
 [data-aos="fade-up"] {
-  transform: translate(0, $aos-distance);
+  @include transform(translate3d(0, $aos-distance, 0));
 }
 
 [data-aos="fade-down"] {
-  transform: translate(0, -$aos-distance);
+  @include transform(translate3d(0, -$aos-distance, 0));
 }
 
 [data-aos="fade-right"] {
-  transform: translate(-$aos-distance, 0);
+  @include transform(translate3d(-$aos-distance, 0, 0));
 }
 
 [data-aos="fade-left"] {
-  transform: translate($aos-distance, 0);
+  @include transform(translate3d($aos-distance, 0, 0));
 }
 
 [data-aos="fade-up-right"] {
-  transform: translate(-$aos-distance, $aos-distance);
+  @include transform(translate3d(-$aos-distance, $aos-distance, 0));
 }
 
 [data-aos="fade-up-left"] {
-  transform: translate($aos-distance, $aos-distance);
+  @include transform(translate3d($aos-distance, $aos-distance, 0));
 }
 
 [data-aos="fade-down-right"] {
-  transform: translate(-$aos-distance, -$aos-distance);
+  @include transform(translate3d(-$aos-distance, -$aos-distance, 0));
 }
 
 [data-aos="fade-down-left"] {
-  transform: translate($aos-distance, -$aos-distance);
+  @include transform(translate3d($aos-distance, -$aos-distance, 0));
 }
 
 
@@ -64,52 +64,52 @@ $aos-distance: 100px !default;
 
 [data-aos^="zoom"][data-aos^="zoom"] {
   opacity: 0;
-  transition-property: opacity, transform;
+  transition-property: opacity, -webkit-transform, -ms-transform, transform;
 
   &.aos-animate {
     opacity: 1;
-    transform: translate(0, 0) scale(1);
+    @include transform(translate3d(0, 0, 0) scale(1));
   }
 }
 
 [data-aos="zoom-in"] {
-  transform: scale(.6);
+  @include transform(scale(.6));
 }
 
 [data-aos="zoom-in-up"] {
-  transform: translate(0, $aos-distance) scale(.6);
+  @include transform(translate3d(0, $aos-distance, 0) scale(.6));
 }
 
 [data-aos="zoom-in-down"] {
-  transform: translate(0, -$aos-distance) scale(.6);
+  @include transform(translate3d(0, -$aos-distance, 0) scale(.6));
 }
 
 [data-aos="zoom-in-right"] {
-  transform: translate(-$aos-distance, 0) scale(.6);
+  @include transform(translate3d(-$aos-distance, 0, 0) scale(.6));
 }
 
 [data-aos="zoom-in-left"] {
-  transform: translate($aos-distance, 0) scale(.6);
+  @include transform(translate3d($aos-distance, 0, 0) scale(.6));
 }
 
 [data-aos="zoom-out"] {
-  transform: scale(1.2);
+  @include transform(scale(1.2));
 }
 
 [data-aos="zoom-out-up"] {
-  transform: translate(0, $aos-distance) scale(1.2);
+  @include transform(translate3d(0, $aos-distance, 0) scale(1.2));
 }
 
 [data-aos="zoom-out-down"] {
-  transform: translate(0, -$aos-distance) scale(1.2);
+  @include transform(translate3d(0, -$aos-distance, 0) scale(1.2));
 }
 
 [data-aos="zoom-out-right"] {
-  transform: translate(-$aos-distance, 0) scale(1.2);
+  @include transform(translate3d(-$aos-distance, 0, 0) scale(1.2));
 }
 
 [data-aos="zoom-out-left"] {
-  transform: translate($aos-distance, 0) scale(1.2);
+  @include transform(translate3d($aos-distance, 0, 0) scale(1.2));
 }
 
 
@@ -120,27 +120,27 @@ $aos-distance: 100px !default;
  */
 
 [data-aos^="slide"][data-aos^="slide"] {
-  transition-property: transform;
+  transition-property: -webkit-transform, -ms-transform, transform;
 
   &.aos-animate {
-    transform: translate(0, 0);
+    @include transform(translate3d(0, 0, 0));
   }
 }
 
 [data-aos="slide-up"] {
-  transform: translateY(100%);
+  @include transform(translate3d(0, 100%, 0));
 }
 
 [data-aos="slide-down"] {
-  transform: translateY(-100%);
+  @include transform(translate3d(0, -100%, 0));
 }
 
 [data-aos="slide-right"] {
-  transform: translateX(-100%);
+  @include transform(translate3d(-100%, 0, 0));
 }
 
 [data-aos="slide-left"] {
-  transform: translateX(100%);
+  @include transform(translate3d(100%, 0, 0));
 }
 
 
@@ -152,26 +152,25 @@ $aos-distance: 100px !default;
  */
 
 [data-aos^="flip"][data-aos^="flip"] {
-  backface-visibility: hidden;
-  transition-property: transform;
+  transition-property: -webkit-transform, -ms-transform, transform;
 }
 
 [data-aos="flip-left"] {
-  transform: perspective(2500px) rotateY(-100deg);
-  &.aos-animate {transform: perspective(2500px) rotateY(0);}
+  @include transform(perspective(2500px) rotateY(-100deg));
+  &.aos-animate { @include transform(perspective(2500px) rotateY(0));}
 }
 
 [data-aos="flip-right"] {
-  transform: perspective(2500px) rotateY(100deg);
-  &.aos-animate {transform: perspective(2500px) rotateY(0);}
+  @include transform(perspective(2500px) rotateY(100deg));
+  &.aos-animate { @include transform(perspective(2500px) rotateY(0));}
 }
 
 [data-aos="flip-up"] {
-  transform: perspective(2500px) rotateX(-100deg);
-  &.aos-animate {transform: perspective(2500px) rotateX(0);}
+  @include transform(perspective(2500px) rotateX(-100deg));
+  &.aos-animate { @include transform(perspective(2500px) rotateX(0));}
 }
 
 [data-aos="flip-down"] {
-  transform: perspective(2500px) rotateX(100deg);
-  &.aos-animate {transform: perspective(2500px) rotateX(0);}
+  @include transform(perspective(2500px) rotateX(100deg));
+  &.aos-animate { @include transform(perspective(2500px) rotateX(0));}
 }
