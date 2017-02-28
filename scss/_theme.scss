@@ -69,6 +69,64 @@ body {
     }
 }
 
+/* 모바일용 텍스트 로고 */
+.logo-text {
+    display: none;
+    overflow: visible;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    font: {
+        family: $font-ui, sans-serif;
+        weight: $font-weight-bold;
+    }
+    text-align: center;
+    white-space: nowrap;
+    @include experimental("text-rendering", geometricPrecision, webkit, moz, o, ms);
+
+    &-alpha {
+        display: block;
+        @include text-scale(4);
+
+        &::before {
+            display: inline-block;
+            content: "(";
+        }
+
+        &::after {
+            color: $bright-cerulean;
+            position: absolute;
+            top: -0.66em;
+            left: 50%;
+            content: ")";
+            @include transform(translateX(-100%) rotate(-90deg));
+        }
+
+        &-origin {
+            display: inline-block;
+
+            &::first-letter {
+                color: transparent;
+                font-size: 0;
+            }
+        }
+    }
+
+    &-beta {
+        color: $spanish-grey;
+        display: block;
+        position: relative;
+        top: -.25em;
+        left: 1em;
+        @include text-scale(2);
+        font: {
+            family: $font-ui, sans-serif;
+            weight: 300;
+        }
+        text-transform: capitalize;
+        white-space: nowrap;
+    }
+}
+
 /* 캐치프레이즈 */
 #catchphrase {
     margin: 0;

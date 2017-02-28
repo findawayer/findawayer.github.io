@@ -152,8 +152,11 @@
             font-size: $base-font-size-shrink;
         }
 
-        #logo {
-            transform: scale(.7);
+        #CleanCleverWeb {
+            display: none;
+        }
+        #mCleanCleverWeb {
+            display: block;
         }
 
         .skill-list {
