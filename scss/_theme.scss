@@ -151,10 +151,11 @@ body {
 
 /* 저작권 표시 */
 #copyright {
+    width: 100%;
     position: absolute;
-    top: 50px;
-    left: 50%;
-    @include transform(translateX(-50%));
+    top: 3vh;
+    left: 0;
+    text-align: center;
     white-space: nowrap;
 }
 
