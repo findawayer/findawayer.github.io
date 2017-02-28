@@ -56,10 +56,12 @@ body {
 /* 메인 화면 | #hero
  ----------------------------------------*/
 .hero-main {
+    width: 100%;
+    height: 330px;
+    margin-top: -165px;
     position: absolute;
     top: 50%;
-    left: 50%;
-    @include transform(translate(-50%, -50%));
+    left: 0;
 
     /* 로고 */
     &,
@@ -67,12 +69,22 @@ body {
     #CleanCleverWeb {
         overflow: visible;
     }
+
+    #logo {
+        width: 400px;
+        margin: 0 auto;
+        line-height: 0;
+    }
 }
 
 /* 모바일용 텍스트 로고 */
 .logo-text {
     display: none;
+    width: 300px;
+    height: 180px;
     overflow: visible;
+    padding-top: 40px;
+    position: relative;
     line-height: 1;
     letter-spacing: -0.01em;
     font: {
@@ -81,6 +93,7 @@ body {
     }
     text-align: center;
     white-space: nowrap;
+    box-sizing: border-box;
     @include experimental("text-rendering", geometricPrecision, webkit, moz, o, ms);
 
     &-alpha {
@@ -88,25 +101,23 @@ body {
         @include text-scale(4);
 
         &::before {
-            display: inline-block;
             content: "(";
         }
 
-        &::after {
-            color: $bright-cerulean;
-            position: absolute;
-            top: -0.66em;
-            left: 50%;
-            content: ")";
-            @include transform(translateX(-100%) rotate(-90deg));
+        &-transformer {
+            color: transparent;
+            font-size: 0;
         }
 
-        &-origin {
-            display: inline-block;
+        &-accent {
+            color: $bright-cerulean;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            @include transform(translate(-100%, -70%) rotate(-90deg));
 
-            &::first-letter {
-                color: transparent;
-                font-size: 0;
+            &::before {
+                content: ")";
             }
         }
     }
@@ -129,7 +140,9 @@ body {
 
 /* 캐치프레이즈 */
 #catchphrase {
+    height: 30px;
     margin: 0;
+    line-height: 30px;
     font: {
         family: "Roboto", sans-serif;
     }
@@ -204,7 +217,7 @@ body {
         text-align: right;
 
         .primary {
-        @include chic-border( lighten($cyan-cornflower-blue, 10) );
+            @include chic-border( lighten($cyan-cornflower-blue, 10) );
 
             &::after {
                 margin: 0;

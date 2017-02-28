@@ -152,6 +152,21 @@
             font-size: $base-font-size-shrink;
         }
 
+        .section-heading {
+            .primary {
+                @include text-scale(2);
+            }
+        }
+
+        .hero-main {
+            height: 210px;
+            margin-top: -105px;
+
+            #logo {
+                width: 300px;
+            }
+        }
+
         #CleanCleverWeb {
             display: none;
         }
