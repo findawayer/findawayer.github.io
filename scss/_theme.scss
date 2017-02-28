@@ -8,12 +8,12 @@
 
 /* 기초 */
 html {
-    font-size: $base-font-size; /* required for rem unit */
+    font-size: $base-font-size; // rem unit control
 }
 
 body {
-    @extend html;
     color: black;
+    overflow-x: hidden; // firefox fix
     line-height: $base-line-height;
     font: {
         family: $base-font;
