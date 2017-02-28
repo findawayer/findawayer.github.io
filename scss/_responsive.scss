@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* 반응�정 | Responsive settings
+/* 반응형 설정 | Responsive settings
  ----------------------------------------*/
 @media screen {
     @media (max-width: 1499px) {
@@ -223,7 +223,7 @@
                             font-weight: $font-weight-bold;
                             content: attr(data-th) ":";
                         }
-
+                    }
                 }
             }
         }
