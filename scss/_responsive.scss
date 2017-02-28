@@ -5,15 +5,7 @@
 @media screen {
     @media (max-width: 1499px) {
         .l-section {
-            padding: 100px 50px;
-        }
-
-        #intro {
-            padding-right: 75px;
-        }
-
-        #skills {
-            padding-left: 75px;
+            padding: 100px 5vw;
         }
     }
 
@@ -175,6 +167,7 @@
             > li {
                 display: list-item;
                 margin: 0;
+                padding-right: 1em; // This covers bullet indentation
             }
         }
 
@@ -190,37 +183,50 @@
             }
 
             &-desc {
-                text-align: center;
-
-                dt,
-                dd {
-                    clear: none;
-                    float: none;
-                }
-
-                dt {
-                    min-width: initial;
-                    padding: 0;
-
-                    &::before {
-                        margin-right: .25em;
-                        content: "[";
-                    }
-
-                    &::after {
-                        margin-left: .25em;
-                        content: "]";
-                    }
-                }
+                display: table;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             &-table {
-                a {
-                    display: inline-block;
-                    max-width: 25vw;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
+                width: 100%;
+
+                thead {
+                    display: none;
+                }
+
+                tr {
+                    border-top: 1px solid $platinum;
+                    display: block;
+                    margin: 1rem 0;
+
+                    &:nth-of-type(even) {
+                        background: inherit;
+                    }
+
+                    td {
+                        display: block;
+                        padding-left: 11em;
+                        position: relative;
+
+                        &::before {
+                            background: rgba(#4d8099, .05);
+                            color: $spanish-grey;
+                            display: block;
+                            width: 10em;
+                            padding: .3em;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            font-weight: $font-weight-bold;
+                            content: attr(data-th) ":";
+                        }
+
+                        &:first-child {
+
+                        }
+                    }
                 }
             }
         }

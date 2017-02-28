@@ -99,8 +99,7 @@ table {
 
     th,
     td {
-        border: 1px solid $platinum;
-        border-width: 0 0 1px;
+        border-bottom: 1px solid $platinum;
         padding: .3em 1em;
         text-align: left;
     }

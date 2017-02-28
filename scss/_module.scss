@@ -167,6 +167,14 @@
     margin-left: .5em;
 }
 
+/* 긴 */
+.wrapped-text {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    @include hyphens(auto);
+}
+
 /* 불릿이 없는 리스트 */
 .unstyled-list {
     padding: 0;
