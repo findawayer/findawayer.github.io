@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* 반응형 설정 | Responsive settings
+/* 반응�정 | Responsive settings
  ----------------------------------------*/
 @media screen {
     @media (max-width: 1499px) {
@@ -189,6 +189,7 @@
             }
 
             &-table {
+                display: block;
                 width: 100%;
 
                 thead {
@@ -222,15 +223,7 @@
                             font-weight: $font-weight-bold;
                             content: attr(data-th) ":";
                         }
-                    }
 
-                    a {
-                        display: block;
-                        max-width: 100%;
-                        overflow: hidden;
-                        white-space: nowrap;
-                        text-overflow: ellipsis;
-                    }
                 }
             }
         }
