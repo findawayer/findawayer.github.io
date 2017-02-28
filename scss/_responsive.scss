@@ -222,10 +222,14 @@
                             font-weight: $font-weight-bold;
                             content: attr(data-th) ":";
                         }
+                    }
 
-                        &:first-child {
-
-                        }
+                    a {
+                        display: block;
+                        max-width: 100%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
                     }
                 }
             }
