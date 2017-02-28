@@ -152,15 +152,8 @@
             font-size: $base-font-size-shrink;
         }
 
-        .logo {
-            &-text {
-                @include text-scale(4);
-            }
-
-            &-subtext {
-                left: 1em;
-                @include text-scale(2);
-            }
+        #logo {
+            transform: scale(.7);
         }
 
         .skill-list {

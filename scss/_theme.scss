@@ -60,61 +60,12 @@ body {
     top: 50%;
     left: 50%;
     @include transform(translate(-50%, -50%));
-}
 
-/* 로고 */
-.logo {
-    overflow: visible;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    font: {
-        family: $font-ui, sans-serif;
-        weight: $font-weight-bold;
-    }
-    text-align: center;
-    white-space: nowrap;
-    @include experimental("text-rendering", geometricPrecision, webkit, moz, o, ms);
-
-    &-text {
-        display: block;
-        @include text-scale(5);
-
-        &::before {
-            display: inline-block;
-            content: "(";
-        }
-
-        &::after {
-            color: $bright-cerulean;
-            position: absolute;
-            transform: translateX(-100%) rotate(-90deg);
-            top: -0.66em;
-            left: 50%;
-            content: ")";
-        }
-    
-        &-orig {
-            display: inline-block;
-
-            &::first-letter {
-                font-size: 0;
-            }
-        }
-    }
-
-    &-subtext {
-        color: $spanish-grey;
-        display: block;
-        position: relative;
-        top: -.25em;
-        left: 1em;
-        @include text-scale(3);
-        font: {
-            family: $font-ui, sans-serif;
-            weight: 300;
-        }
-        text-transform: capitalize;
-        white-space: nowrap;
+    /* 로고 */
+    &,
+    #logo,
+    #CleanCleverWeb {
+        overflow: visible;
     }
 }
 
