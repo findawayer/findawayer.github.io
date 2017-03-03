@@ -167,11 +167,14 @@
             }
         }
 
-        #CleanCleverWeb {
-            display: none;
-        }
-        #mCleanCleverWeb {
-            display: block;
+        .logo-text {
+            &-alpha {
+                @include text-scale(4);
+            }
+
+            &-beta {
+                @include text-scale(2);
+            }
         }
 
         .skill-list {

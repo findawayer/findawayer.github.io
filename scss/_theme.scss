@@ -61,11 +61,6 @@ body {
     line-height: 0;
 }
 
-/* 모바일용 로고 */
-#mCleanCleverWeb {
-    display: none;
-}
-
 /* 텍스트 로고 */
 .logo-text {
     width: 300px;
@@ -87,10 +82,6 @@ body {
     &-alpha {
         display: block;
         @include text-scale(5);
-
-        &.is-smllaer {
-            @include text-scale(4);
-        }
 
         &::before {
             content: "(";
@@ -127,10 +118,6 @@ body {
         }
         text-transform: capitalize;
         white-space: nowrap;
-
-        &.is-smllaer {
-            @include text-scale(2);
-        }
     }
 }
 
@@ -303,28 +290,25 @@ body {
         }
     }
 
-    &-desc {
+    &-spec {
         margin: 2em 0;
+        padding: 0;
 
-        &::after {
-            @include clearfix;
-        }
-
-        dt,
-        dd {
-            float: left;
+        &-item {
+            display: block;
             line-height: 2.4;
         }
 
-        dt {
-            clear: left;
+        &-key,
+        &-value {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &-key {
             min-width: 130px;
             padding-right: .5em;
             font-family: $font-ui, sans-serif;
-        }
-
-        dd {
-            margin-left: 0;
         }
     }
 

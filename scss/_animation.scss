@@ -48,7 +48,7 @@ body.ready #preload {
 /* 스크롤시 애니메이션을 실행하는 요소들 */
 // Config
 $animation-duration: .8s;
-$animation-easing: cubic-bezier(.250, .100, .250, 1); //ease
+$animation-easing: ease; //ease
 
 $slide-distance: 100px;
 $zoom-initial-scale: 0.6;

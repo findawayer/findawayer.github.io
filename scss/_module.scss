@@ -28,10 +28,12 @@
         @include text-scale(3);
         @include chic-border;
     }
+    
     .secondary {
         display: block;
         @include text-scale(1);
         opacity: .5;
+        speak: none;
     }
 
     + .section-content {
