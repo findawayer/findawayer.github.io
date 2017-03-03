@@ -30,7 +30,7 @@
             };
     });
 
-	/**
+    /**
      * Back to top button
      * 
      * @description           Allow users navigate back to top by clicking "to top" button

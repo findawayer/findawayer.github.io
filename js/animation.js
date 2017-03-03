@@ -22,7 +22,7 @@
             easing: "ease"
         };
 
-        // map document and store target elements into `targets` variable
+        // store target elements and their settings into `targets` variable
         targets = prepare();
 
         // disable the whole function on mobile devices and ie8-
@@ -35,7 +35,7 @@
         setTimeout(startAnimation, 1000);
 
         // Map target elements and store their settings into an array
-        // @return {Array}    Array contianing target elements and their settings
+        // @return {Array}    Array containing target elements and their settings
         function prepare() {
             var returnArray = [];
 
