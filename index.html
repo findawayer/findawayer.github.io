@@ -26,13 +26,13 @@
 </head>
 <body>
 
-    <div role="presentation" id="preload">
+    <aside role="presentation" id="preload" aria-hidden="true">
         <div class="throbber">
             <div></div>
             <div></div>
             <div></div>
         </div>
-    </div>
+    </aside>
 
     <main role="main" id="page" class="l-page">
 
@@ -302,16 +302,16 @@
                                 </div>
                                 <ul class="ui-group">
                                     <li class="ui-group-item ui-dropdown-holder">
-                                        <a role="button" class="ui-button ui-dropdown-trigger" href="#">Demo</a>
-                                        <ul role="menu" class="ui-dropdown">
+                                        <a role="button" id="work3DemoDropdown" class="ui-button ui-dropdown-trigger" href="#" aria-expanded="false" aria-haspopup="true">Demo</a>
+                                        <ul role="menu" class="ui-dropdown" aria-labelledby="work3DemoDropdown">
                                             <li role="presentation" class="ui-dropdown-item">
-                                                <a role="menuitem" href="https://findawayer.github.io/Portfolio-MovieSite/" target="_blank">Main page</a>
+                                                <a role="menuitem" href="https://findawayer.github.io/Portfolio-MovieSite/" target="_blank" tabindex="-1">Main page</a>
                                             </li>
                                             <li role="presentation" class="ui-dropdown-item">
-                                                <a role="menuitem" href="https://findawayer.github.io/Portfolio-MovieSite/movie.html" target="_blank">Info page</a>
+                                                <a role="menuitem" href="https://findawayer.github.io/Portfolio-MovieSite/movie.html" target="_blank" tabindex="-1">Info page</a>
                                             </li>
                                             <li role="presentation" class="ui-dropdown-item">
-                                                <a role="menuitem" href="https://findawayer.github.io/Portfolio-MovieSite/order.html" target="_blank">Order page</a>
+                                                <a role="menuitem" href="https://findawayer.github.io/Portfolio-MovieSite/order.html" target="_blank" tabindex="-1">Order page</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -468,12 +468,12 @@
     </footer>
 
     <!-- 맨 위로 버튼 -->
-    <div role="presentation" id="backToTop">
-        <a id="backToTopButton" href="#">
+    <aside id="backToTop">
+        <a role="button" id="backToTopButton" href="#">
             <i class="icon"></i>
             <span class="text">page<br><b>top</b></span>
         </a>
-    </div>
+    </aside>
 
     <!-- 스크립트 -->
     <script type="text/javascript" src="js/script.js"></script>
