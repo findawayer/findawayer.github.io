@@ -1,12 +1,4 @@
-@charset "UTF-8";
-
-/*--------------------------------------------------
- * 기초 | BASE
- *
- * HTML 요소의 기초 스타일링 및 브라우저 호환성 강화
- *--------------------------------------------------*/
-
-/* 블럭의 마진, 패딩 제거 */
+/* Reset margin and padding of some block elements */
 html,
 body,
 form {
@@ -14,7 +6,7 @@ form {
     padding: 0;
 }
 
-/* 제목 */
+/* Headings */
 h1,
 h2,
 h3,
@@ -29,7 +21,7 @@ h6 {
     }
 }
 
-/* 링크 */
+/* Links */
 a {
     background-color: transparent;
     color: $picton-blue;
@@ -46,7 +38,7 @@ a {
     }
 }
 
-/* 텍스트 */
+/* Text level semantics */
 b,
 strong,
 dt {
@@ -64,7 +56,7 @@ ul {
     word-break: keep-all;
 }
 
-/* 그룹 */
+/* Group level semantics */
 hr {
     background: rgba(white, .5);
     border: 0;
@@ -76,12 +68,12 @@ figure {
     margin: 0;
 }
 
-/* 미디어 */
+/* Multimedia */
 img {
     border: 0;
 }
 
-/* 표 */
+/* Table */
 table {
     border: 0;
     border: {
@@ -122,7 +114,7 @@ table {
     }
 }
 
-/* 인터페이스 */
+/* Interface */
 button,
 input,
 optgroup,
@@ -150,6 +142,7 @@ textarea {
     overflow: auto;
 }
 
+/* Hide explicitely [hidden] */
 [hidden] {
     display: none;
 }

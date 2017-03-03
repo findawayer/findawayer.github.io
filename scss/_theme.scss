@@ -1,12 +1,4 @@
-@charset "UTF-8";
-
-/*--------------------------------------------------
- * 테마 | THEME
- *
- * 디자인에 관련된 스타일링
- *--------------------------------------------------*/
-
-/* 기초 */
+/* Basic */
 html {
     font-size: $base-font-size; // rem unit control
 }
@@ -22,12 +14,12 @@ body {
     @include experimental("text-size-adjust", none, webkit, ms);
 }
 
-/* 섹션 */
+/* Sections */
 .l-section {
     background: white;
 }
 
-/* 프리로드 화면 | #preload
+/* #preload
  ----------------------------------------*/
 #preload {
     background: white;
@@ -43,7 +35,7 @@ body {
     }
 }
 
-/* 메인 화면 | #hero
+/* #hero
  ----------------------------------------*/
 .hero-main {
     width: 100%;
@@ -54,14 +46,14 @@ body {
     left: 0;
 }
 
-/* 로고 컨테이너 */
+/* Logo's container */
 #logo {
     width: 400px;
     margin: 0 auto;
     line-height: 0;
 }
 
-/* 텍스트 로고 */
+/* Text logo */
 .logo-text {
     width: 300px;
     height: 180px;
@@ -121,7 +113,7 @@ body {
     }
 }
 
-/* 캐치프레이즈 */
+/* Catchphrase */
 #catchphrase {
     height: 30px;
     margin: 0;
@@ -132,7 +124,7 @@ body {
     text-align: center;
 }
 
-/* 저작권 표시 */
+/* Copyright */
 #copyright {
     width: 100%;
     position: absolute;
@@ -142,7 +134,7 @@ body {
     white-space: nowrap;
 }
 
-/* 컨티뉴 버튼 */
+/* Continue button */
 #continue {
     display: block;
     overflow: hidden;
@@ -185,7 +177,7 @@ body {
     }
 }
 
-/* 자기소개 | #description
+/* #description
  ----------------------------------------*/
 #myself,
 #skills {
@@ -236,12 +228,8 @@ body {
     }
 }
 
-/* 포트폴리오 | #works
+/* #works
  ----------------------------------------*/
-#works {
-
-}
-
 .gallery {
     counter-reset: article;
 
@@ -337,7 +325,7 @@ body {
     }
 }
 
-/* 맨 위로 버튼 | #backToTop
+/* #backToTop
  ----------------------------------------*/
 #backToTop {
     position: fixed;
@@ -400,7 +388,7 @@ body {
     }
 }
 
-/* 푸터 | Footer
+/* #footer
  ----------------------------------------*/
 #footer {
     background: $charleston-green;
@@ -434,7 +422,7 @@ body {
     }
 }
 
-/* 크레딧 | #credits */
+/* Credits */
 .credit {
     &-list {
         margin: 0 auto;
@@ -460,10 +448,9 @@ body {
     }
 }
 
-/* 문의처 | #contacts */
+/* Contacts */
 
-
-/* 푸터 하단 바 | #footerBase */
+/* Footer lower bar */
 #footerBase {
     background: darken($charleston-green, 5);
     padding: {

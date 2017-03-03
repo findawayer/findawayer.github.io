@@ -1,6 +1,4 @@
-@charset "UTF-8";
-
-/* 로딩 스로버 (from https://github.com/tobiasahlin/SpinKit) */
+/* "Loading" throbber (from https://github.com/tobiasahlin/SpinKit) */
 .throbber {
     width: 70px;
 
@@ -24,6 +22,7 @@
     }
 }
 
+// on document ready
 body.ready #preload {
     z-index: -1;
     
@@ -34,6 +33,7 @@ body.ready #preload {
     }
 }
 
+// animation for throbber
 @include keyframes(bouncedelay) {
     0%,
     80%,
@@ -45,15 +45,14 @@ body.ready #preload {
     }
 }
 
-/* 스크롤시 애니메이션을 실행하는 요소들 */
-// Config
+/* Animate In Viewport */
 $animation-duration: .8s;
 $animation-easing: ease; //ease
 
 $slide-distance: 100px;
 $zoom-initial-scale: 0.6;
 
-// Initialize configuration for animation
+// Initialize configuration for animations
 [data-animation] {
     $interval: 100;
     @include animation-delay(0);
