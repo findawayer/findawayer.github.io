@@ -1,5 +1,14 @@
 (function(window, document, undefined) {
 
+    /**
+     * animateInViewport
+     *
+     * @description           Trigger animation as user scrolls down the page
+     *
+     * [data-animation]: Type of the animation. References are available in ../scss/_animation.scss
+     * [data-animation-delay]: Delay before start of the animation. 100 to 2000, in miliseconds
+     * [data-animation-duration]: Duration of the animation. 100 to 2000, in miliseconds
+     */
     (function animateInViewport() {
 
         // elements to animate
@@ -25,6 +34,8 @@
         // show throbber explicitely for 1 second even if the page is instantly loaded
         setTimeout(startAnimation, 1000);
 
+        // Map target elements and store their settings into an array
+        // @return {Array}    Array contianing target elements and their settings
         function prepare() {
             var returnArray = [];
 
@@ -38,11 +49,11 @@
                 });
             });
 
-            console.log(returnArray);
-
             return returnArray;
         }
 
+        // Check user agent and if necessary, exit the plugin
+        // @return {Boolean}    Whether user agent is an exception
         function isException() {
             var check = false;
 
@@ -59,13 +70,17 @@
             return check;
         }
 
+        // Run animation on page load
+        // @return {undefined}
         function startAnimation() {
-            destroyPreloadLayer();
-            handleScroll();
+            destroyPreloadLayer(); // hide throbber
+            animateOnScroll(); // trigger animation on currently visible elements
 
-            window.addEventListener("scroll", handleScroll);
+            window.addEventListener("scroll", animateOnScroll); // watch scroll event and trigger animation
         }
 
+        // Hide "loading" throbber layer
+        // @return {undefined}
         function destroyPreloadLayer() {
             var layer = document.getElementById("preload");
             var opacity = 1;
@@ -86,7 +101,9 @@
             animate();
         }
 
-        function handleScroll() {
+        // Trigger animation while scrolling
+        // @return {undefined}
+        function animateOnScroll() {
             var scrollDistance = window.pageYOffset + window.innerHeight;
 
             targets.forEach(function(target) {
