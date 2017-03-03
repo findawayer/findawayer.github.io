@@ -40,15 +40,9 @@
         <section role="banner" id="hero" class="l-section">
             <div class="hero-main">
                 <h1 id="logo">
-                    <!-- Clean Clever Web 로고 -->
-                    <span id="cleanCleverWeb" class="logo-text">
-                        <span id="clean" class="logo-text-alpha" data-animation="fade-down"><span class="logo-text-alpha-transformer">C</span>lean<span class="logo-text-alpha-accent"></span></span>
-                        <span id="cleverWeb" class="logo-text-beta" data-animation="fade-up" data-animation-duration="1000" data-animation-delay="400">Clever Web</span>
-                    </span>
-                    <!-- 좁은 스크린용 텍스트 로고 -->
-                    <span id="mCleanCleverWeb" class="logo-text">
-                        <span id="mClean" class="logo-text-alpha is-smaller" data-animation="fade-down"><span class="logo-text-alpha-transformer">C</span>lean<span class="logo-text-alpha-accent"></span></span>
-                        <span id="mCleverWeb" class="logo-text-beta is-smaller" data-animation="fade-up" data-animation-duration="1000" data-animation-delay="400">Clever Web</span>
+                    <span class="logo-text">
+                        <span class="logo-text-alpha" data-animation="fade-down"><span class="logo-text-alpha-transformer">C</span>lean<span class="logo-text-alpha-accent"></span></span>
+                        <span class="logo-text-beta" data-animation="fade-up" data-animation-duration="1000" data-animation-delay="400">&nbsp;Clever Web</span>
                     </span>
                 </h1>
                 <p id="catchphrase" data-animation="fade-in" data-animation-duration="500" data-animation-delay="1500">Aim for better experience.</p>
@@ -59,7 +53,7 @@
             </div>
     
             <div role="presentation" id="continue">
-                <a role="button" id="continueButton" href="#" data-animation="fade-in" data-animation-duration="500" data-animation-delay="2000">Continue</a>
+                <a role="button" id="continueButton" href="#introduction" data-animation="fade-in" data-animation-duration="500" data-animation-delay="2000">Continue</a>
             </div>
         </section>
 
@@ -144,31 +138,28 @@
 
                     <!-- 포트폴리오 엔트리: 예술의 전당 -->
                     <article role="article" id="work1" class="gallery-item" data-animation="fade-left">
-                        <figure class="gallery-figure">
+                        <figure role="group" class="gallery-figure">
                             <div class="gallery-image">
-                                <img class="gallery-image-thumb" src="img/example1.png" alt="item">
+                                <img class="gallery-image-thumb" src="img/example1.png" alt="예술의 전당 랜딩 페이지" aria-describedby="work1Description">
                             </div>
                             <figcaption class="gallery-caption">
                                 <h3 class="gallery-title">예술의 전당 랜딩 페이지</h3>
-                                <dl class="gallery-desc">
-                                    <dt>Viewport</dt>
-                                    <dd>반응형</dd>
-
-                                    <dt>IE support</dt>
-                                    <dd>IE 9+</dd>
-
-                                    <dt>Palette</dt>
-                                    <dd>
-                                        <ul class="palette">
-                                            <li class="palette-item" data-tooltip="Raisin Black" style="background: #2d2527"></li>
-                                            <li class="palette-item" data-tooltip="Claret" style="background: #7c2430"></li>
-                                            <li class="palette-item" data-tooltip="Cordovan" style="background: #8c4649"></li>
-                                            <li class="palette-item" data-tooltip="Catawba" style="background: #7a343c"></li>
+                                <ul class="gallery-spec">
+                                    <li class="gallery-spec-item"><strong class="gallery-spec-key">Viewport</strong> <span class="gallery-spec-value">반응형</span></li>
+                                    <li class="gallery-spec-item"><strong class="gallery-spec-key">IE support</strong> <span class="gallery-spec-value">IE9+</span></li>
+                                    <li class="gallery-spec-item"><strong class="gallery-spec-key">Palette</strong>
+                                        <ul class="gallery-spec-value palette">
+                                            <li class="palette-item" data-tooltip="Raisin Black" style="background: #2d2527"><span class="sr-only">Raisin Black</span></li>
+                                            <li class="palette-item" data-tooltip="Claret" style="background: #7c2430"><span class="sr-only">Claret</span></li>
+                                            <li class="palette-item" data-tooltip="Cordovan" style="background: #8c4649"><span class="sr-only">Cordovan</span></li>
+                                            <li class="palette-item" data-tooltip="Catawba" style="background: #7a343c"><span class="sr-only">Catawba</span></li>
                                         </ul>
-                                    </dd>
-                                </dl>
-                                <p><a href="http://www.sac.or.kr/" target="_blank">예술의 전당 사이트</a>의 메인 페이지를 부트스트랩 4를 기반으로 한 반응형 구조로 리뉴얼해 보았습니다.</p>
-                                <p><a href="https://v4-alpha.getbootstrap.com/" target="_blank">부트스트랩의 4 alpha 버전</a>을 기반으로 제작되었고, 이 버전의 부트스트랩이 사용하는 Sass를 테마 제작에도 사용했으며, IE9+를 지원하는 jQuery 3.1 및 jQuery UI가 사용되었습니다.</p>
+                                    </li>
+                                </ul>
+                                <div id="work1Description">
+                                    <p><a href="http://www.sac.or.kr/" target="_blank">예술의 전당 사이트</a>의 메인 페이지를 부트스트랩 4를 기반으로 한 반응형 구조로 리뉴얼해 보았습니다.</p>
+                                    <p><a href="https://v4-alpha.getbootstrap.com/" target="_blank">부트스트랩의 4 alpha 버전</a>을 기반으로 제작되었고, 이 버전의 부트스트랩이 사용하는 Sass를 테마 제작에도 사용했으며, IE9+를 지원하는 jQuery 3.1 및 jQuery UI가 사용되었습니다.</p>
+                                </div>
                                 <div class="ui-group">
                                     <a role="button" class="ui-button" href="https://findawayer.github.io/Portfolio-SAC/" target="_blank">Demo</a>
                                     <a role="button" class="ui-button" href="https://github.com/findawayer/Portfolio-SAC/tree/gh-pages" target="_blank">Repos</a>
@@ -215,30 +206,27 @@
 
                     <!-- 포트폴리오 엔트리: 기상청 -->
                     <article role="article" id="work2" class="gallery-item" data-animation="fade-right">
-                        <figure class="gallery-figure">
+                        <figure role="group" class="gallery-figure">
                             <div class="gallery-image">
-                                <img class="gallery-image-thumb" src="img/example2.png" alt="item">
+                                <img class="gallery-image-thumb" src="img/example2.png" alt="대한민국 기상청 랜딩 페이지" aria-describedby="work2Description">
                             </div>
                             <figcaption class="gallery-caption">
                                 <h3 class="gallery-title">대한민국 기상청 랜딩 페이지</h3>
-                                <dl class="gallery-desc">
-                                    <dt>Viewport</dt>
-                                    <dd>데스크탑</dd>
-
-                                    <dt>IE Support</dt>
-                                    <dd>IE 8+</dd>
-
-                                    <dt>Palette</dt>
-                                    <dd>
-                                        <ul class="palette">
-                                            <li class="palette-item" data-tooltip="Bright Cerulean" style="background: #30a3da;"></li>
-                                            <li class="palette-item" data-tooltip="Platinum" style="background: #e3e3e3;"></li>
-                                            <li class="palette-item" data-tooltip="Light Gray" style="background: #d2d2d2;"></li>
+                                <ul class="gallery-spec">
+                                    <li class="gallery-spec-item"><strong class="gallery-spec-key">Viewport</strong> <span class="gallery-spec-value">데스크탑</span></li>
+                                    <li class="gallery-spec-item"><strong class="gallery-spec-key">IE support</strong> <span class="gallery-spec-value">IE8+</span></li>
+                                    <li class="gallery-spec-item"><strong class="gallery-spec-key">Palette</strong>
+                                        <ul class="gallery-spec-value palette">
+                                            <li class="palette-item" data-tooltip="Bright Cerulean" style="background: #30a3da;"><span class="sr-only">Bright Cerulean</span></li>
+                                            <li class="palette-item" data-tooltip="Platinum" style="background: #e3e3e3;"><span class="sr-only">Platinum</span></li>
+                                            <li class="palette-item" data-tooltip="Light Gray" style="background: #d2d2d2;"><span class="sr-only">Light Gray</span></li>
                                         </ul>
-                                    </dd>
-                                </dl>
-                                <p><a href="http://www.kma.go.kr/index.jsp" target="_blank">기상청</a> 사이트의 대문을 리뉴얼해 보았습니다. 인터페이스용 그림에는 SVG를 적극적으로 활용했고, 백업 png를 병용했습니다.</p>
-                                <p>공공기관 사이트로서 보다 많은 사용자 환경에 대응하기 위해 익스플로러 8까지의 호환성 지원, 웹 접근성 관리가 되어 있습니다.</p>
+                                    </li>
+                                </ul>
+                                <div id="work2Description">
+                                    <p><a href="http://www.kma.go.kr/index.jsp" target="_blank">기상청</a> 사이트의 대문을 리뉴얼해 보았습니다. 인터페이스용 그림에는 SVG를 적극적으로 활용했고, 백업 png를 병용했습니다.</p>
+                                    <p>공공기관 사이트로서 보다 많은 사용자 환경에 대응하기 위해 익스플로러 8까지의 호환성 지원, 웹 접근성 관리가 되어 있습니다.</p>
+                                </div>
                                 <div class="ui-group">
                                     <a role="button" class="ui-button" href="https://findawayer.github.io/Portfolio-KMA/" target="_blank">Demo</a>
                                     <a role="button" class="ui-button" href="https://github.com/findawayer/Portfolio-KMA/tree/gh-pages" target="_blank">Repos</a>
@@ -290,29 +278,28 @@
 
                     <!-- 포트폴리오 엔트리: 영화 사이트 -->
                     <article role="article" id="work3" class="gallery-item" data-animation="fade-left">
-                        <figure class="gallery-figure">
+                        <figure role="group" class="gallery-figure">
                             <div class="gallery-image">
-                                <img class="gallery-image-thumb" src="img/example3.png" alt="item">
+                                <img class="gallery-image-thumb" src="img/example3.png" alt="오리지널 영화 사이트" aria-describedby="work3Description">
                             </div>
                             <figcaption class="gallery-caption">
                                 <h3 class="gallery-title">오리지널 영화 사이트</h3>
-                                <dl class="gallery-desc">
-                                    <dt>Viewport</dt>
-                                    <dd>모바일</dd>
-
-                                    <dt>Palette</dt>
-                                    <dd>
-                                        <ul class="palette">
-                                            <li class="palette-item" data-tooltip="Raisin Black" style="background: #1f2124;"></li>
-                                            <li class="palette-item" data-tooltip="Gunmetal" style="background: #2c2f34;"></li>
-                                            <li class="palette-item" data-tooltip="Roman Silver" style="background: #8a9099;"></li>
-                                            <li class="palette-item" data-tooltip="Vivid Cerulean" style="background: #00aeef;"></li>
-                                            <li class="palette-item" data-tooltip="Deep Lemon" style="background: #f0c91e;"></li>
+                                <ul class="gallery-spec">
+                                    <li class="gallery-spec-item"><strong class="gallery-spec-key">Viewport</strong> <span class="gallery-spec-value">모바일</span></li>
+                                    <li class="gallery-spec-item"><strong class="gallery-spec-key">Palette</strong>
+                                        <ul class="gallery-spec-value palette">
+                                            <li class="palette-item" data-tooltip="Raisin Black" style="background: #1f2124;"><span class="sr-only">Raisin Black</span></li>
+                                            <li class="palette-item" data-tooltip="Gunmetal" style="background: #2c2f34;"><span class="sr-only">Gunmetal</span></li>
+                                            <li class="palette-item" data-tooltip="Roman Silver" style="background: #8a9099;"><span class="sr-only">Roman Silver</span></li>
+                                            <li class="palette-item" data-tooltip="Vivid Cerulean" style="background: #00aeef;"><span class="sr-only">Vivid Cerulean</span></li>
+                                            <li class="palette-item" data-tooltip="Deep Lemon" style="background: #f0c91e;"><span class="sr-only">Deep Lemon</span></li>
                                         </ul>
-                                    </dd>
-                                </dl>
-                                <p>오리지널 영화 정보 및 예매사이트를 모바일 전용으로 구성해 보았습니다. <b>영화 목록 페이지</b>, <b>특정 영화 정보 페이지</b>, <b>티켓 예매 페이지</b> 3가지 샘플을 포함하고 있습니다.</p>
-                                <p>기기별 기본 UX를 최대한 유지하기 위해 검색상자나 선택상자 등은 네이티브 형식을 사용했으며, 필요에 따라 날짜선택, 별점 입력 등의 기능이 추가돼 있습니다.</p>
+                                    </li>
+                                </ul>
+                                <div id="work3Description">
+                                    <p>오리지널 영화 정보 및 예매사이트를 모바일 전용으로 구성해 보았습니다. <b>영화 목록 페이지</b>, <b>특정 영화 정보 페이지</b>, <b>티켓 예매 페이지</b> 3가지 샘플을 포함하고 있습니다.</p>
+                                    <p>기기별 기본 UX를 최대한 유지하기 위해 검색상자나 선택상자 등은 네이티브 형식을 사용했으며, 필요에 따라 날짜선택, 별점 입력 등의 기능이 추가돼 있습니다.</p>
+                                </div>
                                 <ul class="ui-group">
                                     <li class="ui-group-item ui-dropdown-holder">
                                         <a role="button" class="ui-button ui-dropdown-trigger" href="#">Demo</a>
