@@ -5,6 +5,8 @@
 @import "mixins";
 @import "flaticon";
 
+$browser-minimum-versions: ("ie": "9");
+
 /*--------------------------------------------------
  * 기초 | BASE
  *
@@ -39,4 +41,4 @@
  *--------------------------------------------------*/
 @import "theme";
 @import "responsive";
-@import "aos/aos"; // `Animation On Scroll` plugin
+@import "animation";

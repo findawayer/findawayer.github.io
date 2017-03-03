@@ -13,7 +13,7 @@ html {
 
 body {
     color: black;
-    overflow-x: hidden; // firefox fix
+    overflow-x: hidden; // fix firefox bug
     line-height: $base-line-height;
     font: {
         family: $base-font;
@@ -41,16 +41,6 @@ body {
     .throbber {
         @include centerize(true, true);
     }
-
-    &.is-fired {
-        z-index: -1;
-        
-        .throbber {
-            > div {
-                @include animation(initial);
-            }
-        }
-    }
 }
 
 /* 메인 화면 | #hero
@@ -62,24 +52,22 @@ body {
     position: absolute;
     top: 50%;
     left: 0;
-
-    /* 로고 */
-    &,
-    #logo,
-    #CleanCleverWeb {
-        overflow: visible;
-    }
-
-    #logo {
-        width: 400px;
-        margin: 0 auto;
-        line-height: 0;
-    }
 }
 
-/* 모바일용 텍스트 로고 */
-.logo-text {
+/* 로고 컨테이너 */
+#logo {
+    width: 400px;
+    margin: 0 auto;
+    line-height: 0;
+}
+
+/* 모바일용 로고 */
+#mCleanCleverWeb {
     display: none;
+}
+
+/* 텍스트 로고 */
+.logo-text {
     width: 300px;
     height: 180px;
     overflow: visible;
@@ -98,7 +86,11 @@ body {
 
     &-alpha {
         display: block;
-        @include text-scale(4);
+        @include text-scale(5);
+
+        &.is-smllaer {
+            @include text-scale(4);
+        }
 
         &::before {
             content: "(";
@@ -128,13 +120,17 @@ body {
         position: relative;
         top: -.25em;
         left: 1em;
-        @include text-scale(2);
+        @include text-scale(3);
         font: {
             family: $font-ui, sans-serif;
             weight: 300;
         }
         text-transform: capitalize;
         white-space: nowrap;
+
+        &.is-smllaer {
+            @include text-scale(2);
+        }
     }
 }
 

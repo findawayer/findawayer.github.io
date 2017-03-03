@@ -1,0 +1,224 @@
+@charset "UTF-8";
+
+/* 로딩 스로버 (from https://github.com/tobiasahlin/SpinKit) */
+.throbber {
+    width: 70px;
+
+    > div {
+        background: $picton-blue;
+        border-radius: 100%;
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        @include animation(bouncedelay 1.4s infinite ease-in-out both);
+
+        &:nth-child(1) {
+            -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+        }
+
+        &:nth-child(2) {
+            -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+        }
+    }
+}
+
+body.ready #preload {
+    z-index: -1;
+    
+    .throbber {
+        > div {
+            @include animation(initial);
+        }
+    }
+}
+
+@include keyframes(bouncedelay) {
+    0%,
+    80%,
+    100% {
+        @include transform(scale(0));
+    }
+    40% {
+        @include transform(scale(1.0));
+    }
+}
+
+/* 스크롤시 애니메이션을 실행하는 요소들 */
+// Config
+$animation-duration: .8s;
+$animation-easing: cubic-bezier(.250, .100, .250, 1); //ease
+
+$slide-distance: 100px;
+$zoom-initial-scale: 0.6;
+
+// Initialize configuration for animation
+[data-animation] {
+    $interval: 100;
+    @include animation-delay(0);
+    @include animation-duration($animation-duration);
+    @include animation-fill-mode(both);
+    @include animation-timing-function($animation-easing);
+
+    // Generate duration up to 100ms up to 2000ms
+    @for $i from 1 through 20 {
+        $ms: $i * $interval;
+
+        &[data-animation][data-animation-duration="#{$ms}"] {
+            @include animation-duration(#{$ms}ms);
+        }
+
+        &[data-animation][data-animation-delay="#{$ms}"] {
+            @include animation-delay(#{$ms}ms);
+        }
+    }
+}
+
+
+// Fade animations
+.is-animated {
+    &[data-animation="fade-in"] {
+        @include animation-name(fade-in);
+    }
+
+    &[data-animation="fade-up"] {
+        @include animation-name(fade-up);
+    }
+
+    &[data-animation="fade-down"] {
+        @include animation-name(fade-down);
+    }
+
+    &[data-animation="fade-left"] {
+        @include animation-name(fade-left);
+    }
+
+    &[data-animation="fade-right"] {
+        @include animation-name(fade-right);
+    }
+}
+
+@include keyframes(fade-in) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@include keyframes(fade-up) {
+    0% {
+        opacity: 0;
+        @include transform( translate(0, $slide-distance) );
+    }
+    100% {
+        opacity: 1;
+        @include transform( translate(0, 0) );
+    }
+}
+@include keyframes(fade-down) {
+    0% {
+        opacity: 0;
+        @include transform( translate(0, -$slide-distance) );
+    }
+    100% {
+        opacity: 1;
+        @include transform( translate(0, 0) );
+    }
+}
+@include keyframes(fade-left) {
+    0% {
+        opacity: 0;
+        @include transform( translate($slide-distance, 0) );
+    }
+    100% {
+        opacity: 1;
+        @include transform( translate(0, 0) );
+    }
+}
+@include keyframes(fade-right) {
+    0% {
+        opacity: 0;
+        @include transform( translate(-$slide-distance, 0) );
+    }
+    100% {
+        opacity: 1;
+        @include transform( translate(0, 0) );
+    }
+}
+
+
+// Zoom animations
+.is-animated {
+    &[data-animation="zoom-in"] {
+        @include animation-name(zoom-in);
+    }
+    
+    &[data-animation="zoom-in-up"] {
+        @include animation-name(zoom-in-up);
+    }
+
+    &[data-animation="zoom-in-down"] {
+        @include animation-name(zoom-in-down);
+    }
+
+    &[data-animation="zoom-in-left"] {
+        @include animation-name(zoom-in-left);
+    }
+
+    &[data-animation="zoom-in-right"] {
+        @include animation-name(zoom-in-right);
+    }
+}
+
+@include keyframes(zoom-in) {
+    0% {
+        opacity: 0;
+        @include transform( translate(-$slide-distance, 0) scale($zoom-initial-scale) );
+    }
+    100% {
+        opacity: 1;
+        @include transform( translate(0, 0) scale(1) );
+    }
+}
+@include keyframes(zoom-in-up) {
+    0% {
+        opacity: 0;
+        @include transform( translate(-$slide-distance, 0) scale($zoom-initial-scale) );
+    }
+    100% {
+        opacity: 1;
+        @include transform( translate(0, 0) scale(1) );
+    }
+}
+@include keyframes(zoom-in-down) {
+    0% {
+        opacity: 0;
+        @include transform( translate(-$slide-distance, 0) scale($zoom-initial-scale) );
+    }
+    100% {
+        opacity: 1;
+        @include transform( translate(0, 0) scale(1) );
+    }
+}
+@include keyframes(zoom-in-left) {
+    0% {
+        opacity: 0;
+        @include transform( translate(-$slide-distance, 0) scale($zoom-initial-scale) );
+    }
+    100% {
+        opacity: 1;
+        @include transform( translate(0, 0) scale(1) );
+    }
+}
+@include keyframes(zoom-in-right) {
+    0% {
+        opacity: 0;
+        @include transform( translate(-$slide-distance, 0) scale($zoom-initial-scale) );
+    }
+    100% {
+        opacity: 1;
+        @include transform( translate(0, 0) scale(1) );
+    }
+}
