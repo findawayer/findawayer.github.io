@@ -31,8 +31,10 @@
         // re-calculate position when user resizes window
         window.addEventListener("resize", prepare);
 
-        // show throbber explicitely for 1 second even if the page is instantly loaded
-        setTimeout(startAnimation, 1000);
+        // on resources loaded,
+        window.addEventListener("load", function() {
+            setTimeout(startAnimation, 600); // show throbber explicitely for 0.6 second then start the animation
+        });
 
         // Map target elements and store their settings into an array
         // @return {Array}    Array containing target elements and their settings
