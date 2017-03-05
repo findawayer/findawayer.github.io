@@ -1,5 +1,7 @@
 (function(window, document, undefined) {
 
+    "use strict";
+
     /**
      * rAF shim
      * RequestAnimation polyfill by Erik Möller, Paul Irish and Tino Zijdel
@@ -10,8 +12,7 @@
         var vendors = ["ms", "moz", "webkit", "o"];
         for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
             window.requestAnimationFrame = window[vendors[x]+"RequestAnimationFrame"];
-            window.cancelAnimationFrame = window[vendors[x]+"CancelAnimationFrame"] 
-                                       || window[vendors[x]+"CancelRequestAnimationFrame"];
+            window.cancelAnimationFrame = window[vendors[x]+"CancelAnimationFrame"] || window[vendors[x]+"CancelRequestAnimationFrame"];
         }
      
         if (!window.requestAnimationFrame)
@@ -28,7 +29,7 @@
             window.cancelAnimationFrame = function(id) {
                 clearTimeout(id);
             };
-    });
+    })();
 
     /**
      * Back to top button

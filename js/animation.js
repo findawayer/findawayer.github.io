@@ -10,6 +10,8 @@
      * [data-animation-duration]: Duration of the animation. 100 to 2000, in miliseconds
      */
     (function animateInViewport() {
+        
+        "use strict";
 
         // elements to animate
         var targetElements = Array.prototype.slice.call(document.querySelectorAll("[data-animation]"));
