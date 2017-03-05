@@ -79,6 +79,7 @@ body {
 
     &-alpha {
         display: block;
+        position: relative;
         @include text-scale(5);
 
         &::before {
