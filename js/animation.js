@@ -21,7 +21,8 @@
         var options = {
             delay: 0,
             duration: 800,
-            easing: "ease"
+            easing: "ease",
+            activeClass: "is-animated"
         };
 
         // store target elements and their settings into `targets` variable
@@ -35,7 +36,7 @@
 
         // on resources loaded,
         window.addEventListener("load", function() {
-            setTimeout(startAnimation, 600); // show throbber explicitely for 0.6 second then start the animation
+            setTimeout(startAnimation, 500); // show throbber explicitely for 0.5 second then start the animation
         });
 
         // Map target elements and store their settings into an array
@@ -111,13 +112,13 @@
             var scrollDistance = window.pageYOffset + window.innerHeight;
 
             targets.forEach(function(target) {
-                changeState(target, scrollDistance);
+                triggerAnimation(target, scrollDistance);
             });
 
-            function changeState(target, distance) {
-                if (distance > target.position) {
-                    target.node.setAttribute("class", target.node.className + " is-animated");
-                }
+            function triggerAnimation(target, distance) {
+                var targetClassList = target.node.classList;
+                if (distance <= target.position || targetClassList.contains(options.activeClass)) return;
+                targetClassList.add(options.activeClass);
             }
         }
 
