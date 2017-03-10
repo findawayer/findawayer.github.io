@@ -76,6 +76,7 @@ body {
     box-sizing: border-box;
     @include experimental("text-rendering", geometricPrecision, webkit, moz, o, ms);
 
+    // alpha/beta font-size ratio is around 5:2
     &-alpha {
         display: block;
         position: relative;

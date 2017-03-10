@@ -245,6 +245,25 @@
     }
 
     @media (max-width: 479px) {
+        .hero-main {
+            height: 150px;
+            margin-top: -75px;
+
+            #logo {
+                width: 240px;
+            }
+        }
+
+        .logo-text {
+            &-alpha {
+                font-size: 80px;
+            }
+
+            &-beta {
+                font-size: 32px;
+            }
+        }
+
         #contacts {
             .unstyled-list-item {
                 display: list-item;
