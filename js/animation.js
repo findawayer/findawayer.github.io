@@ -9,12 +9,11 @@
      * [data-animation-delay]: Delay before start of the animation. 100 to 2000, in miliseconds
      * [data-animation-duration]: Duration of the animation. 100 to 2000, in miliseconds
      */
-    (function animateInViewport() {
+    (function animateInViewport(targetElements) {
         
         "use strict";
 
         // elements to animate
-        var targetElements = Array.prototype.slice.call(document.querySelectorAll("[data-animation]"));
         var targets = [];
 
         // default configuration
@@ -29,7 +28,10 @@
         targets = prepare();
 
         // disable the whole function on mobile devices and ie8-
-        if ( isException() ) return;
+        if ( isException() ) {
+            destroyPreloadLayer(); // destroy preloader
+            return;
+        }
 
         // re-calculate position when user resizes window
         window.addEventListener("resize", prepare);
@@ -43,16 +45,18 @@
         // @return {Array}    Array containing target elements and their settings
         function prepare() {
             var returnArray = [];
+            var i = 0;
+            var len = targetElements.length;
 
-            targetElements.forEach(function(el) {
+            for (; i < len; i++) {
                 returnArray.push({
-                    node: el,
-                    position: el.getBoundingClientRect().top,
-                    delay: el.getAttribute("data-animation-delay") || options.delay,
-                    duration: el.getAttribute("data-animation-duration") || options.duration,
+                    node: targetElements[i],
+                    position: targetElements[i].getBoundingClientRect().top,
+                    delay: targetElements[i].getAttribute("data-animation-delay") || options.delay,
+                    duration: targetElements[i].getAttribute("data-animation-duration") || options.duration,
                     easing: options.easing
-                });
-            });
+                });                
+            }
 
             return returnArray;
         }
@@ -110,10 +114,11 @@
         // @return {undefined}
         function animateOnScroll() {
             var scrollDistance = window.pageYOffset + window.innerHeight;
+            var len = targets.length;
 
-            targets.forEach(function(target) {
-                triggerAnimation(target, scrollDistance);
-            });
+            while (len--) {
+                triggerAnimation(targets[len], scrollDistance);
+            }
 
             function triggerAnimation(target, distance) {
                 var targetClassList = target.node.classList;
@@ -122,6 +127,6 @@
             }
         }
 
-    })();
+    })(document.querySelectorAll("[data-animation]"));
 
 })(window, document);
