@@ -7,7 +7,7 @@ html {
 body {
     @extend html;
     position: relative;
-    min-width: 320px;
+    min-width: 300px; // minimum resolution - scrollbar (for security)
 }
 
 /* Page */
