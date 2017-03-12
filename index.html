@@ -12,27 +12,24 @@
     <meta name="keywords" content="HTML, CSS, Javascript, jQuery">
     <meta name="author" content="TaeSung Lim">
     <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Quicksand:300,400,500">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="img/favicons/manifest.json">
-    <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="img/favicons/favicon.ico">
-    <meta name="msapplication-config" content="img/favicons/browserconfig.xml">
+    <!-- DNS prefetch -->
+    <link rel="dns-prefetch" hrefp="https://fonts.googleapis.com">
+    <!-- Subresource for critical sheets -->
+    <link rel="subresource" href="https://fonts.googleapis.com/css?family=Open+Sans|Quicksand:300,400,500" as="style" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Preload animation script if possible -->
+    <link rel="preload" href="./js/animation.js" as="script">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="./img/favicons/manifest.json">
+    <link rel="mask-icon" href="./img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="./img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="./img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
 </head>
 <body>
-
-    <aside role="presentation" id="preload" aria-hidden="true">
-        <div class="throbber">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </aside>
 
     <main role="main" id="page" class="l-page">
 
@@ -140,7 +137,7 @@
                     <article role="article" id="work1" class="gallery-item" data-animation="fade-left">
                         <figure role="group" class="gallery-figure">
                             <div class="gallery-image">
-                                <img class="gallery-image-thumb" src="img/example1.png" alt="예술의 전당 랜딩 페이지" aria-describedby="work1Description">
+                                <img class="gallery-image-thumb" src="./img/example1.png" alt="예술의 전당 랜딩 페이지" aria-describedby="work1Description">
                             </div>
                             <figcaption class="gallery-caption">
                                 <h3 class="gallery-title">예술의 전당 랜딩 페이지</h3>
@@ -208,7 +205,7 @@
                     <article role="article" id="work2" class="gallery-item" data-animation="fade-right">
                         <figure role="group" class="gallery-figure">
                             <div class="gallery-image">
-                                <img class="gallery-image-thumb" src="img/example2.png" alt="대한민국 기상청 랜딩 페이지" aria-describedby="work2Description">
+                                <img class="gallery-image-thumb" src="./img/example2.png" alt="대한민국 기상청 랜딩 페이지" aria-describedby="work2Description">
                             </div>
                             <figcaption class="gallery-caption">
                                 <h3 class="gallery-title">대한민국 기상청 랜딩 페이지</h3>
@@ -280,7 +277,7 @@
                     <article role="article" id="work3" class="gallery-item" data-animation="fade-left">
                         <figure role="group" class="gallery-figure">
                             <div class="gallery-image">
-                                <img class="gallery-image-thumb" src="img/example3.png" alt="오리지널 영화 사이트" aria-describedby="work3Description">
+                                <img class="gallery-image-thumb" src="./img/example3.png" alt="오리지널 영화 사이트" aria-describedby="work3Description">
                             </div>
                             <figcaption class="gallery-caption">
                                 <h3 class="gallery-title">오리지널 영화 사이트</h3>
@@ -467,6 +464,14 @@
 
     </footer>
 
+    <aside role="presentation" id="preload" aria-hidden="true">
+        <div class="throbber">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </aside>
+
     <!-- 맨 위로 버튼 -->
     <aside id="backToTop">
         <a role="button" id="backToTopButton" href="#">
@@ -475,9 +480,13 @@
         </a>
     </aside>
 
+    <noscript>
+        <style>#preload,#backToTop{display:none}</style>
+    </noscript>
+
     <!-- 스크립트 -->
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/animation.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/animation.js"></script>
     
 </body>
 </html>
