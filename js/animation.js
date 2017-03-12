@@ -37,7 +37,7 @@
             if ( isException() ) {
                 destroyPreloadLayer(); // destroy preloader
             } else {
-                setTimeout(startAnimation, 500); // show throbber explicitely for 0.5 second then start the animation
+                setTimeout(startAnimation, 200); // show throbber explicitely for 0.2s then start the animation
             }
             
         });
