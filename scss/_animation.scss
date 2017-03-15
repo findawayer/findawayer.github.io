@@ -24,7 +24,7 @@
 
 // on document ready
 body.ready #preload {
-    z-index: -1;
+    z-index: -1000;
     
     .throbber {
         > div {
