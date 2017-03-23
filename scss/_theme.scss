@@ -44,86 +44,27 @@ body {
  ----------------------------------------*/
 .hero-main {
     width: 100%;
-    height: 330px;
-    margin-top: -165px;
     position: absolute;
     top: 50%;
     left: 0;
+    @include transform(translateY(-50%));
 }
 
 /* Logo's container */
 #logo {
     width: 400px;
     margin: 0 auto;
-    line-height: 0;
 }
 
-/* Text logo */
-.logo-text {
-    width: 300px;
-    height: 180px;
+#logo,
+#logoSvg {
     overflow: visible;
-    padding-top: 40px;
-    position: relative;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    font: {
-        family: $font-ui, sans-serif;
-        weight: $font-weight-bold;
-    }
-    text-align: center;
-    white-space: nowrap;
-    box-sizing: border-box;
-    @include experimental("text-rendering", geometricPrecision, webkit, moz, o, ms);
-
-    // alpha/beta font-size ratio is around 5:2
-    &-alpha {
-        display: block;
-        position: relative;
-        @include text-scale(5);
-
-        &::before {
-            content: "(";
-        }
-
-        &-transformer {
-            color: transparent;
-            font-size: 0;
-        }
-
-        &-accent {
-            color: $bright-cerulean;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            @include transform(translate(-100%, -70%) rotate(-90deg));
-
-            &::before {
-                content: ")";
-            }
-        }
-    }
-
-    &-beta {
-        color: $spanish-grey;
-        display: block;
-        position: relative;
-        top: -.25em;
-        left: 1em;
-        @include text-scale(3);
-        font: {
-            family: $font-ui, sans-serif;
-            weight: 300;
-        }
-        text-transform: capitalize;
-        white-space: nowrap;
-    }
 }
 
 /* Catchphrase */
 #catchphrase {
     height: 30px;
-    margin: 0;
+    margin: 20px 0 0;
     line-height: 30px;
     font: {
         family: "Roboto", sans-serif;
@@ -248,6 +189,9 @@ body {
 
     &-figure {
         position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         display: flex;
         flex-flow: row wrap;
     }
@@ -259,11 +203,15 @@ body {
             display: block;
             max-width: 100%; /* responsive */
             height: auto;
+            margin: 0 auto;
         }
     }
 
     &-caption {
         margin-left: 2rem;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
         flex: 1;
     }
 
@@ -308,6 +256,10 @@ body {
     }
 
     &-table {
+        -webkit-box-flex: 1;
+        width: 100%;
+        -webkit-flex: 1;
+        -ms-flex: 1;
         flex: 100%;
 
         &-col {

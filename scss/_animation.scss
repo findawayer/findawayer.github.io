@@ -47,7 +47,7 @@ body.ready #preload {
 
 /* Animate In Viewport */
 $animation-duration: .8s;
-$animation-easing: ease; //ease
+$animation-easing: ease; // ease
 
 $slide-distance: 100px;
 $zoom-initial-scale: 0.6;
@@ -57,7 +57,7 @@ $zoom-initial-scale: 0.6;
     $interval: 100;
     @include animation-delay(0);
     @include animation-duration($animation-duration);
-    @include animation-fill-mode(both);
+    @include animation-fill-mode(forwards);
     @include animation-timing-function($animation-easing);
 
     // Generate duration up to 100ms up to 2000ms
@@ -76,6 +76,10 @@ $zoom-initial-scale: 0.6;
 
 
 // Fade animations
+.is-init[data-animation^="fade"] {
+    opacity: 0;
+}
+
 .is-animated {
     &[data-animation="fade-in"] {
         @include animation-name(fade-in);
@@ -149,6 +153,10 @@ $zoom-initial-scale: 0.6;
 
 
 // Zoom animations
+.is-init[data-animation^="zoom"] {
+    @include transform(scale(0));
+}
+
 .is-animated {
     &[data-animation="zoom-in"] {
         @include animation-name(zoom-in);
