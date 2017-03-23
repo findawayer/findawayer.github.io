@@ -17,11 +17,12 @@
         var targets = [];
 
         // default configuration
-        var options = {
-            delay: 0,
-            duration: 800,
-            easing: "ease",
-            activeClass: "is-animated"
+        var defaults = {
+            offset: 200,
+            classes: {
+                isInit: "is-init",
+                isAnimated: "is-animated"
+            }
         };
 
         // store target elements and their settings into `targets` variable
@@ -34,7 +35,7 @@
         window.addEventListener("load", function() {
 
             // disable the whole function on mobile devices and ie8-
-            if ( isException() ) {
+            if (isException()) {
                 destroyPreloadLayer(); // destroy preloader
             } else {
                 setTimeout(startAnimation, 200); // show throbber explicitely for 0.2s then start the animation
@@ -45,21 +46,35 @@
         // Map target elements and store their settings into an array
         // @return {Array}    Array containing target elements and their settings
         function prepare() {
-            var returnArray = [];
+            var arr = [];
             var i = 0;
             var len = targetElements.length;
+            var item, offset;
 
             for (; i < len; i++) {
-                returnArray.push({
-                    node: targetElements[i],
-                    position: targetElements[i].getBoundingClientRect().top,
-                    delay: targetElements[i].getAttribute("data-animation-delay") || options.delay,
-                    duration: targetElements[i].getAttribute("data-animation-duration") || options.duration,
-                    easing: options.easing
-                });                
+                item = {};
+
+                item.node = targetElements[i];
+                offset = item.node.hasAttribute("data-animation-offset") ? parseInt(item.node.getAttribute("data-animation-offset")) : defaults.offset;
+                item.position = getOffsetY(item.node) + offset;
+
+                arr.push(item);                
             }
 
-            return returnArray;
+            function getOffsetY(el) {
+                var y = 0;
+
+                do {
+                    if (!isNaN(el.offsetTop)) {
+                        y += el.offsetTop;
+                    }
+                    el = el.offsetParent;
+                } while(el);
+
+                return y;
+            }
+
+            return arr;
         }
 
         // Check user agent and if necessary, exit the plugin
@@ -67,8 +82,8 @@
         function isException() {
             var check = false;
 
-            // Not supported browsers: ie8-
-            if (document.all && !document.addEventListener) check = true;
+            // IE 9-
+            if (document.documentMode < 10) check = true;
 
             // Mobile devices
             (function(agent) {
@@ -83,6 +98,10 @@
         // Run animation on page load
         // @return {undefined}
         function startAnimation() {
+            targets.forEach(function(target) {
+                target.node.classList.add(defaults.classes.isInit);
+            });
+
             destroyPreloadLayer(); // hide throbber
             animateOnScroll(); // trigger animation on currently visible elements
 
@@ -101,7 +120,7 @@
 
                 if (opacity > 0) {
                     layer.style.opacity = opacity;
-                    window.requestAnimationFrame( animate );
+                    window.requestAnimationFrame(animate);
                 } else {
                     layer.removeAttribute("style");
                     document.body.classList.add("ready"); // hide throbber behind the main content
@@ -114,17 +133,20 @@
         // Trigger animation while scrolling
         // @return {undefined}
         function animateOnScroll() {
-            var scrollDistance = window.pageYOffset + window.innerHeight;
-            var len = targets.length;
+            var scrollY = window.pageYOffset + window.innerHeight;
+            var i = targets.length;
 
-            while (len--) {
-                triggerAnimation(targets[len], scrollDistance);
+            while (i--) {
+                triggerAnimation(targets[i], scrollY);
             }
 
-            function triggerAnimation(target, distance) {
-                var targetClassList = target.node.classList;
-                if (distance <= target.position || targetClassList.contains(options.activeClass)) return;
-                targetClassList.add(options.activeClass);
+            function triggerAnimation(target) {
+                if (target.node.classList.contains(defaults.classes.isAnimated)) {
+                    return;
+                } else if (scrollY > target.position) {
+                    console.log(target, scrollY);
+                    target.node.classList.add(defaults.classes.isAnimated);
+                }
             }
         }
 
@@ -138,17 +160,23 @@
      */
     var lastTime = 0;
     var vendors = ['ms', 'moz', 'webkit', 'o'];
+
     for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
         window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
         window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] 
                                     || window[vendors[x]+'CancelRequestAnimationFrame'];
     }
+
     if (!window.requestAnimationFrame) {
         window.requestAnimationFrame = function(callback, element) {
             var currTime = new Date().getTime();
             var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
-                timeToCall);
+            var id = window.setTimeout(
+                function() {
+                    callback(currTime + timeToCall);
+                },
+                timeToCall
+            );
             lastTime = currTime + timeToCall;
             return id;
         };       
